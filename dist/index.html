@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego | Servicio Técnico Profesional</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+
+.services-bg{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(10,10,10,0.30), rgba(10,10,10,0.30)),
+    url('/images/segunda.webp');
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:0.4;
+    z-index:0;
+}
+
+#servicios .container{
+    position:relative;
+    z-index:2;
+}
+.zonas-bg{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)),
+    url('/images/tercera.webp');
+
+    background-size:cover;
+    background-position:center;
+
+    z-index:0;
+}
+
+#zonas .container{
+    position:relative;
+    z-index:2;
+}
+:root {
+            --bg-deep: #0a0a0a;
+            --bg-card: #141414;
+            --primary: #3b82f6; /* Electric Blue */
+            --primary-glow: rgba(59, 130, 246, 0.3);
+            --white: #ffffff;
+            --text-muted: #94a3b8;
+            --whatsapp: #22c55e;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--white) 50%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .micro-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 40px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1.05rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 10px 30px -10px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px var(--primary-glow);
+            filter: brightness(1.1);
+        }
+
+        .btn-wa {
+            background-color: var(--whatsapp);
+            color: white;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.4);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .nav-inner {
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            background-color: var(--bg-deep);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.75)), url('/images/primera.webp');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        /* Cards Grid */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 48px;
+            border-radius: 32px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(59, 130, 246, 0.2);
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(59, 130, 246, 0.02) 100%);
+        }
+
+        .card-icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 32px;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Zones */
+        .zones-container {
+            background: var(--bg-card);
+            border-radius: 40px;
+            padding: 60px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .zone-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            list-style: none;
+        }
+
+        .zone-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            transition: var(--transition);
+        }
+
+        .zone-item:hover {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .zone-item i {
+            color: var(--primary);
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 16px;
+            border-radius: 20px;
+            background: var(--bg-card);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .faq-trigger {
+            padding: 24px 32px;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-content {
+            padding: 0 32px 24px;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        /* Floating WhatsApp */
+        .wa-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
+            background-color: var(--whatsapp);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 15px 35px -10px rgba(34, 197, 94, 0.6);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1) rotate(6deg);
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-padding { padding: 60px 0; }
+            .hero { text-align: center; justify-content: center; }
+            .hero p { margin: 0 auto 48px; }
+            .btn-wa { max-width: 100%; }
+            .zones-container { padding: 30px; }
+            .wa-float { bottom: 20px; right: 20px; width: 60px; height: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5491100000000" class="wa-float" id="wa-float">
+        <i data-lucide="message-circle" size="32"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <i data-lucide="cog" class="text-primary"></i>
+                DIEGO <span>SERVICE</span>
+            </a>
+            <a href="https://wa.me/5491100000000" class="btn btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                URGENCIAS
+            </a>
+        </div>
+    </header>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="micro-label reveal">Atención rápida y garantizada</span>
+                <h1 class="text-gradient reveal">Reparación Profesional de Electrodomésticos</h1>
+                <p class="reveal">Especialista técnico a domicilio en Olivos, San Isidro y Zona Norte. Mas de 15 años brindando confianza.</p>
+                <div class="reveal">
+                    <a href="https://wa.me/5491100000000" class="btn btn-wa">
+                        <i data-lucide="message-circle"></i>
+                        Consultas por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services -->
+    <section class="section-padding" id="servicios" style="position: relative; overflow: hidden;">
+        <div class="services-bg"></div>
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 80px;" class="reveal">
+                <span class="micro-label">Servicio Técnico Profesional</span>
+                <h2 style="font-size: 3rem; font-weight: 800;">Soluciones para tu Hogar</h2>
+            </div>
+            
+            <div class="grid-cards">
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="settings"></i></div>
+                    <h3>Lavarropas</h3>
+                    <p>Reparación de todas las marcas y modelos. Cambio de bomba, motor, placa y rodamientos.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="waves"></i></div>
+                    <h3>Lavavajillas</h3>
+                    <p>Solución profesional a problemas de carga, desagote y limpieza. Mantenimiento técnico especializado.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="wind"></i></div>
+                    <h3>Secadoras</h3>
+                    <p>Reparación de sistemas de calor y ventilación. Evitá el sobrecalentamiento de tus equipos.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="zap"></i></div>
+                    <h3>Electricidad</h3>
+                    <p>Servicio de electricidad comercial e industrial. Instalaciones seguras y normalizadas.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="home"></i></div>
+                    <h3>Servicio a Domicilio</h3>
+                    <p>Atención técnica directa en tu hogar o negocio con puntualidad y honestidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage -->
+    <section class="section-padding" id="zonas" style="position: relative; overflow: hidden;">
+    <div class="zonas-bg"></div>
+        <div class="container">
+            <div class="zones-container reveal">
+                <div style="margin-bottom: 60px;">
+                    <span class="micro-label">Cobertura Directa</span>
+                    <h2 style="font-size: 2.5rem; font-weight: 800;">Atención a domicilio en:</h2>
+                </div>
+                
+                <ul class="zone-list">
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> Olivos</li>
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> Victoria</li>
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> Acassuso</li>
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> San Fernando</li>
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> Béccar</li>
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> San Isidro</li>
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> Martínez</li>
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> Tigre</li>
+                    <li class="zone-item"><i data-lucide="map-pin" size="18"></i> Vicente López</li>
+                </ul>
+            </div>
+        </div>
+
+
+    <!-- Benefits -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-cards">
+                <div class="reveal" style="padding: 20px;">
+                    <i data-lucide="check-circle" class="text-primary" size="40" style="margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 16px;">Garantía Escrita</h3>
+                    <p>Cada reparación cuenta con el respaldo y la seriedad que te mereces.</p>
+                </div>
+                <div class="reveal" style="padding: 20px; transition-delay: 0.1s;">
+                    <i data-lucide="truck" class="text-primary" size="40" style="margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 16px;">Visitas en el día</h3>
+                    <p>Entendemos la urgencia, por eso priorizamos tu consulta para el mismo día.</p>
+                </div>
+                <div class="reveal" style="padding: 20px; transition-delay: 0.2s;">
+                    <i data-lucide="shield-check" class="text-primary" size="40" style="margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 16px;">Repuestos Originales</h3>
+                    <p>Utilizamos componentes de primera calidad para asegurar la vida útil de tus equipos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;" class="reveal">
+                <h2 style="font-size: 2.5rem; font-weight: 800;">Preguntas Frecuentes</h2>
+            </div>
+            
+            <div class="reveal" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        ¿Trabajan los fines de semana?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        Sí, brindamos atención de urgencia para casos críticos durante los fines de semana y feriados.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        ¿Cobran la visita técnica?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        La visita tiene un costo mínimo de diagnóstico que se bonifica por completo si se decide realizar el presupuesto con nosotros.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        ¿Tienen garantía los trabajos?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        Absolutamente. Todos nuestros servicios técnicos cuentan con garantía escrita de 3 a 6 meses según el tipo de reparación realizada.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section-padding">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, var(--bg-card) 0%, #000 100%); padding: 80px 40px; border-radius: 48px; text-align: center; border: 1px solid rgba(59, 130, 246, 0.2);" class="reveal">
+                <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 24px;">¿Tu electrodoméstico falló?</h2>
+                <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 48px;">No esperes más, pedí tu presupuesto sin cargo por WhatsApp ahora mismo.</p>
+                <a href="https://wa.me/5491100000000" class="btn btn-primary" style="padding: 20px 60px; font-size: 1.2rem;">
+                    <i data-lucide="message-circle"></i>
+                    Enviar Mensaje ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <a href="#" class="logo" style="justify-content: center;">
+                    <i data-lucide="cog" class="text-primary"></i>
+                    DIEGO <span>SERVICE</span>
+                </a>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+                © 2024 Diego Servicio Técnico. Todos los derechos reservados.<br>
+                Ubicación: Zona Norte, Provincia de Buenos Aires.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Reveal Animation
+        const reveal = () => {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach((el) => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add("active");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+
+        // Header Style on Scroll
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.style.background = "rgba(10, 10, 10, 0.95)";
+                header.style.height = "80px";
+            } else {
+                header.style.background = "rgba(10, 10, 10, 0.8)";
+                header.style.height = "90px";
+            }
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = trigger.nextElementSibling;
+                const icon = trigger.querySelector('[data-lucide="chevron-down"]');
+                
+                // Toggle current
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    trigger.style.color = 'var(--white)';
+                } else {
+                    content.style.display = 'block';
+                    trigger.style.color = 'var(--primary)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
